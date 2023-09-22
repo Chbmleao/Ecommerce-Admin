@@ -1,8 +1,10 @@
+import { useRouter } from "next/router";
 import Link from "next/link";
 
 export default function Navbar() {
   const inactiveLink = "flex gap-1 p-1";
-  const activeLink = inactiveLink + " bg-white text-indigo-900 rounded-l-lg";
+  const activeLink = inactiveLink + " bg-white text-indigo-950 rounded-l-lg";
+  const { pathname } = useRouter();
 
   return (
     <aside className="text-white p-4 pr-0">
@@ -25,7 +27,10 @@ export default function Navbar() {
       </Link>
 
       <nav className="flex flex-col gap-2">
-        <Link href={"/"} className={activeLink}>
+        <Link
+          href={"/"}
+          className={pathname === "/" ? activeLink : inactiveLink}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -43,7 +48,10 @@ export default function Navbar() {
           Dashboard
         </Link>
 
-        <Link href={"/products"} className={inactiveLink}>
+        <Link
+          href={"/products"}
+          className={pathname.includes("products") ? activeLink : inactiveLink}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -61,7 +69,10 @@ export default function Navbar() {
           Products
         </Link>
 
-        <Link href={"/orders"} className={inactiveLink}>
+        <Link
+          href={"/orders"}
+          className={pathname.includes("orders") ? activeLink : inactiveLink}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -79,7 +90,10 @@ export default function Navbar() {
           Orders
         </Link>
 
-        <Link href={"/settings"} className={inactiveLink}>
+        <Link
+          href={"/settings"}
+          className={pathname.includes("settings") ? activeLink : inactiveLink}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
