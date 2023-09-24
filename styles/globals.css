@@ -28,10 +28,6 @@ label {
   @apply text-indigo-950;
 }
 
-.btn-primary {
-  @apply bg-indigo-950 text-white px-4 rounded-md;
-}
-
 table.basic {
   @apply w-full;
 }
@@ -44,8 +40,21 @@ table.basic tr td {
   @apply border border-indigo-200 p-1;
 }
 
-table.basic a {
+.btn-primary {
+  @apply text-white px-4 rounded-md bg-indigo-950;
+}
+
+.btn-delete,
+.btn-edit {
   @apply text-white text-sm py-1 px-2 rounded-md inline-flex gap-1 items-center mr-1;
+}
+
+.btn-delete {
+  @apply bg-red-700;
+}
+
+.btn-edit {
+  @apply bg-indigo-950;
 }
 
 .btn-default,
