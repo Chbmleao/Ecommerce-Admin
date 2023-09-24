@@ -6,13 +6,16 @@ export default async function handle(req, res) {
   const { method } = req;
 
   if (method === "GET") {
-    const categories = await Category.find();
+    const categories = await Category.find().populate("parent");
     res.json(categories);
   }
 
   if (method === "POST") {
-    const { name } = req.body;
-    const categoryDoc = await Category.create({ name });
+    const { name, parentCategory } = req.body;
+    const categoryDoc = await Category.create({
+      name,
+      parent: parentCategory,
+    });
     res.json(categoryDoc);
   }
 }
