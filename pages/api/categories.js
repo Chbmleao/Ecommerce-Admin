@@ -11,20 +11,30 @@ export default async function handle(req, res) {
   }
 
   if (method === "POST") {
-    const { name, parentCategory } = req.body;
+    const { name, parentCategory, properties } = req.body;
+    const propertiesArr = properties.map((p) => ({
+      name: p.name,
+      values: p.values.split(","),
+    }));
     const data = {
       name,
       parent: parentCategory || null,
+      properties: propertiesArr,
     };
     const categoryDoc = await Category.create(data);
     res.json(categoryDoc);
   }
 
   if (method === "PUT") {
-    const { name, parentCategory, _id } = req.body;
+    const { name, parentCategory, properties, _id } = req.body;
+    const propertiesArr = properties.map((p) => ({
+      name: p.name,
+      values: p.values.split(","),
+    }));
     const data = {
       name,
       parent: parentCategory || null,
+      properties: propertiesArr,
     };
     const categoryDoc = await Category.updateOne({ _id }, data);
     res.json(categoryDoc);
