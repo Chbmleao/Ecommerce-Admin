@@ -5,7 +5,13 @@ import { signOut } from "next-auth/react";
 export default function Navbar() {
   const inactiveLink = "flex gap-1 p-1";
   const activeLink = inactiveLink + " bg-white text-indigo-950 rounded-l-lg";
-  const { pathname } = useRouter();
+  const router = useRouter();
+  const { pathname } = router;
+
+  async function signOutAndRedirect() {
+    await router.push("/");
+    await signOut();
+  }
 
   return (
     <aside className="text-white p-4 pr-0">
@@ -145,7 +151,7 @@ export default function Navbar() {
           Settings
         </Link>
 
-        <button onClick={signOut} className={inactiveLink}>
+        <button onClick={signOutAndRedirect} className={inactiveLink}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
