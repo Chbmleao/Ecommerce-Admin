@@ -206,7 +206,7 @@ function Categories({ swal }) {
                   <td className="flex">
                     <button
                       onClick={() => editCategory(category)}
-                      className="btn-edit"
+                      className="btn-table"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -226,7 +226,7 @@ function Categories({ swal }) {
                     </button>
                     <button
                       onClick={() => deleteCategory(category)}
-                      className="btn-delete"
+                      className="btn-table"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
