@@ -3,19 +3,23 @@
 @tailwind utilities;
 
 h1 {
-  @apply text-indigo-950 mb-2 text-xl;
+  @apply text-secondary-300 mb-4 text-xl;
 }
 
 img {
   max-height: 100%;
 }
 
+label {
+  @apply text-secondary-200 text-sm;
+}
+
 input,
 textarea,
 select {
-  @apply border-2 border-gray-200 rounded-md px-1 w-full;
+  @apply border bg-white border-gray-200 rounded-sm py-2 px-3 w-full;
   @apply mb-2;
-  @apply bg-white;
+  @apply shadow-sm;
 }
 
 input:focus,
@@ -24,37 +28,24 @@ select:focus {
   @apply border-indigo-950;
 }
 
-label {
-  @apply text-indigo-950;
-}
-
 table.basic {
-  @apply w-full;
+  @apply w-full bg-white rounded-sm shadow-md;
 }
 
 table.basic thead tr td {
-  @apply bg-indigo-100;
+  @apply text-sm text-secondary-200 uppercase border-b border-secondary-100 px-4 py-2;
 }
 
 table.basic tr td {
-  @apply border border-indigo-200 p-1;
+  @apply p-1 px-4 py-1;
 }
 
 .btn-primary {
-  @apply text-white px-4 rounded-md bg-indigo-950;
+  @apply px-4 py-1 rounded-md bg-primary text-white;
 }
 
-.btn-delete,
-.btn-edit {
-  @apply text-white text-sm py-1 px-2 rounded-md inline-flex gap-1 items-center mr-1;
-}
-
-.btn-delete {
-  @apply bg-red-700;
-}
-
-.btn-edit {
-  @apply bg-indigo-950;
+.btn-table {
+  @apply bg-secondary-200 text-primary px-4 py-1 rounded-md inline-flex mx-1 items-center gap-1 text-sm;
 }
 
 .btn-default,
