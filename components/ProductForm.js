@@ -115,18 +115,20 @@ export default function ProductForm({
       </select>
       {propertiesToFill &&
         propertiesToFill.map((p, index) => (
-          <div className="flex gap-1" key={index}>
-            <div>{p.name}</div>
-            <select
-              value={productProperties[p.name]}
-              onChange={(ev) => setProductProp(p.name, ev.target.value)}
-            >
-              {p.values.map((v, index) => (
-                <option key={index} value={v}>
-                  {v}
-                </option>
-              ))}
-            </select>
+          <div className="" key={index}>
+            <label>{p.name[0].toUpperCase() + p.name.substring(1)}</label>
+            <div>
+              <select
+                value={productProperties[p.name]}
+                onChange={(ev) => setProductProp(p.name, ev.target.value)}
+              >
+                {p.values.map((v, index) => (
+                  <option key={index} value={v}>
+                    {v}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
         ))}
       <label>Photos</label>
@@ -138,17 +140,20 @@ export default function ProductForm({
         >
           {images &&
             images.map((link) => (
-              <div key={link} className="h-32">
+              <div
+                key={link}
+                className="h-24 shadow-sm rounded-sm border-gray-200"
+              >
                 <img className="rounded-lg" src={link} alt="Product image" />
               </div>
             ))}
         </ReactSortable>
         {isUploading && (
-          <div className="h-32 w-32 flex items-center justify-center  rounded-lg">
+          <div className="h-24 w-24 flex items-center justify-center  rounded-lg">
             <Spinner />
           </div>
         )}
-        <label className="w-32 h-32 flex items-center  flex-col justify-center gap-1 text-gray-500 rounded-lg bg-gray-200 text-sm cursor-pointer">
+        <label className="w-24 h-24 flex items-center  flex-col justify-center gap-1 text-primary rounded-lg bg-white text-sm cursor-pointer shadow-md border border-primary">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -163,7 +168,7 @@ export default function ProductForm({
               d="M9 8.25H7.5a2.25 2.25 0 00-2.25 2.25v9a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25H15m0-3l-3-3m0 0l-3 3m3-3V15"
             />
           </svg>
-          <div>Upload</div>
+          <div>Add image</div>
           <input type="file" onChange={uploadImages} className="hidden" />
         </label>
       </div>
