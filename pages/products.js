@@ -45,7 +45,7 @@ export default function Products() {
                   Edit
                 </Link>
                 <Link
-                  className="btn-table"
+                  className="btn-table btn-red"
                   href={"/products/delete/" + product._id}
                 >
                   <svg
