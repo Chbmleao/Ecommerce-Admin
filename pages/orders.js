@@ -55,8 +55,8 @@ export default function Orders() {
               </td>
               <td>
                 <ul>
-                  {order.line_items && order.line_items.map((product) => (
-                    <li>{product.price_data.product_data.name} x{product.quantity}</li>
+                  {order.line_items && order.line_items.map((product, index) => (
+                    <li key={product.price_data.product_data.name + index}>{product.price_data.product_data.name} x{product.quantity}</li>
                   ))}
                 </ul>
               </td>
