@@ -19,10 +19,11 @@ export default function Orders() {
   return (
     <Layout>
       <h1>Orders</h1>
-      <table className="basic table-auto text-sm">
+      <table className="basic text-sm">
         <thead>
           <tr>
             <td>Date</td>
+            <td>Paid</td>
             <td>Recipient</td>
             <td>Products</td>
           </tr>
@@ -31,6 +32,19 @@ export default function Orders() {
           {orders.map((order) => (
             <tr key={order._id}>
               <td>{new Date(order.createdAt).toLocaleString()}</td>
+              <td>
+                {
+                  order.paid ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 text-green-600">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 text-red-600">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                  )
+                }
+              </td>
               <td>
                 <ul>
                   <li><strong>{order.userName}</strong>, {order.userEmail}</li>
